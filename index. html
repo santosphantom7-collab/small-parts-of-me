@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Shay 💌</title>
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #1a1a1a, #000);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #fff;
+}
+
+h1 {
+    margin-top: 30px;
+    font-size: 2.5rem;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.envelope {
+    width: 180px;
+    height: 120px;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255,0,0,0.4);
+    transition: transform 0.3s;
+    color: #000;
+}
+
+.envelope:hover {
+    transform: scale(1.08);
+}
+
+.envelope::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: crimson;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+}
+
+.spiderman {
+    background: radial-gradient(circle, #b30000, #000);
+    color: white;
+    box-shadow: 0 0 20px red;
+}
+
+.envelope span {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.scroll {
+    display: none;
+    background: #fdf1dc;
+    color: #333;
+    margin: 20px auto;
+    padding: 30px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    text-align: left;
+    animation: fadeIn 0.5s ease;
+}
+
+.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<h1>For You, Shay 💌</h1>
+<p>Every letter is a piece of my heart. Open them one by one.</p>
+
+<div class="container">
+
+<div class="envelope" onclick="openScroll('s1')"><span>Goodnight 🌙</span></div>
+<div class="envelope" onclick="openScroll('s2')"><span>Reassurance 💖</span></div>
+<div class="envelope" onclick="openScroll('s3')"><span>Morning ☀️</span></div>
+<div class="envelope" onclick="openScroll('s4')"><span>Confession ❤️</span></div>
+<div class="envelope" onclick="openScroll('s5')"><span>Apology 💔</span></div>
+<div class="envelope spiderman" onclick="openScroll('s6')"><span>From Your Spider-Man 🕷️</span></div>
+<div id="finalEnvelope" class="envelope locked"><span>Final Letter 🔒</span></div>
+
+</div>
+
+<div id="s1" class="scroll"><h2>Goodnight 🌙</h2><p>Thank you for choosing me, for loving me, for being mine. Sleep knowing you're deeply loved.</p></div>
+
+<div id="s2" class="scroll"><h2>Reassurance 💖</h2><p>I’m not perfect… I mess up. But for you, I’d risk it all. Thank you for loving me despite my flaws.</p></div>
+
+<div id="s3" class="scroll"><h2>Morning ☀️</h2><p>Rise and shine, my love. Another day to choose you all over again.</p></div>
+
+<div id="s4" class="scroll"><h2>Confession ❤️</h2><p>I’m all in. I fell in love with everything about you… even the parts you try to hide.</p></div>
+
+<div id="s5" class="scroll"><h2>Apology 💔</h2><p>I’m sorry for the times I made things heavy. I’m learning, growing… trying to be better for you.</p></div>
+
+<div id="s6" class="scroll"><h2>Your Spider-Man 🕷️</h2><p>I’m still just a boy who loves too hard and gets attached too quickly… but for you, I wouldn’t change that. You mean everything to me. — From your Spider-Man</p></div>
+
+<div id="final" class="scroll"><h2>Final Letter ❤️</h2><p>If you’re reading this… it means you’ve seen every piece of my heart. And I need you to know this— even though things might feel rough right now, this isn’t the end for us. I still believe in us. I still choose you. And no matter how hard it gets, I’m not ready to give up on what we have. I love you. Always.</p></div>
+
+<script>
+let opened = new Set();
+
+function openScroll(id) {
+    document.querySelectorAll('.scroll').forEach(s => s.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+    opened.add(id);
+
+    if (opened.size === 6) {
+        const finalEnv = document.getElementById('finalEnvelope');
+        finalEnv.classList.remove('locked');
+        finalEnv.onclick = () => openScroll('final');
+    }
+}
+</script>
+
+</body>
+</html>
