@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Shay 💌</title>
+
 <style>
 body {
     font-family: 'Segoe UI', sans-serif;
@@ -47,7 +48,6 @@ h1 {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
     width: 100%;
     height: 50%;
     background: crimson;
@@ -58,6 +58,11 @@ h1 {
     background: radial-gradient(circle, #b30000, #000);
     color: white;
     box-shadow: 0 0 20px red;
+}
+
+.locked {
+    opacity: 0.4;
+    cursor: not-allowed;
 }
 
 .envelope span {
@@ -81,17 +86,13 @@ h1 {
     animation: fadeIn 0.5s ease;
 }
 
-.locked {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
+
 <body>
 
 <h1>For You, Shay 💌</h1>
@@ -105,21 +106,40 @@ h1 {
 <div class="envelope" onclick="openScroll('s4')"><span>Confession ❤️</span></div>
 <div class="envelope" onclick="openScroll('s5')"><span>Apology 💔</span></div>
 <div class="envelope spiderman" onclick="openScroll('s6')"><span>From Your Spider-Man 🕷️</span></div>
-
 <div class="envelope" onclick="openScroll('s7')"><span>Miss Me 💭</span></div>
-<div id="finalEnvelope" class="envelope locked"><span>Final Letter 🔒</span></div>
+
+<div id="finalEnvelope" class="envelope locked">
+    <span>Final Letter 🔒</span>
+</div>
 
 </div>
 
-<div id="s1" class="scroll"><h2>Goodnight 🌙</h2><p>Thank you for choosing me, for loving me, for being mine. Sleep knowing you're deeply loved.</p></div>
+<!-- Letters -->
 
-<div id="s2" class="scroll"><h2>Reassurance 💖</h2><p>I’m not perfect… I mess up. But for you, I’d risk it all. Thank you for loving me despite my flaws.</p></div>
+<div id="s1" class="scroll">
+<h2>Goodnight 🌙</h2>
+<p>Thank you for choosing me, for loving me, for being mine. Sleep knowing you're deeply loved.</p>
+</div>
 
-<div id="s3" class="scroll"><h2>Morning ☀️</h2><p>Rise and shine, my love. Another day to choose you all over again.</p></div>
+<div id="s2" class="scroll">
+<h2>Reassurance 💖</h2>
+<p>I’m not perfect… I mess up. But for you, I’d risk it all. Thank you for loving me despite my flaws.</p>
+</div>
 
-<div id="s4" class="scroll"><h2>Confession ❤️</h2><p>I’m all in. I fell in love with everything about you… even the parts you try to hide.</p></div>
+<div id="s3" class="scroll">
+<h2>Morning ☀️</h2>
+<p>Rise and shine, my love. Another day to choose you all over again.</p>
+</div>
 
-<div id="s5" class="scroll"><h2>Apology 💔</h2><p>I’m sorry for the times I made things heavy. I’m learning, growing… trying to be better for you.</p></div>
+<div id="s4" class="scroll">
+<h2>Confession ❤️</h2>
+<p>I’m all in. I fell in love with everything about you… even the parts you try to hide.</p>
+</div>
+
+<div id="s5" class="scroll">
+<h2>Apology 💔</h2>
+<p>I’m sorry for the times I made things heavy. I’m learning, growing… trying to be better for you.</p>
+</div>
 
 <div id="s6" class="scroll">
 <h2>Your Spider-Man 🕷️</h2>
@@ -130,29 +150,39 @@ h1 {
 <h2>When You Miss Me 💭</h2>
 <p>Hey… if you opened this, it probably means I’m on your mind. And I just want you to know — I’m right here for you, even in the quiet moments.
 
-You don’t have to carry anything alone. Not your thoughts, not your worries, not your fears. I’ve got you… always.
+You don’t have to carry anything alone. I’ve got you… always.
 
-I love you more than I probably say out loud, and even when things feel uncertain, that doesn’t change. You matter to me in a way that’s real and steady.
+I love you more than I say, and even when things feel uncertain, that doesn’t change.
 
-So breathe for a second… everything is going to be okay. We’ll figure it out, together.
+So breathe… everything is going to be okay.
 
 And if you’re missing me… just know I’m missing you too. ❤️</p>
 </div>
 
-<div id="final" class="scroll"><h2>Final Letter ❤️</h2><p>If you’re reading this… it means you’ve seen every piece of my heart. And I need you to know this— even though things might feel rough right now, this isn’t the end for us. I still believe in us. I still choose you. And no matter how hard it gets, I’m not ready to give up on what we have. I love you. Always.</p></div>
+<div id="final" class="scroll">
+<h2>Final Letter ❤️</h2>
+<p>If you’re reading this… it means you’ve seen every piece of my heart. And I need you to know this— even though things might feel rough right now, this isn’t the end for us. I still believe in us. I still choose you. And no matter how hard it gets, I’m not ready to give up on what we have. I love you. Always.</p>
+</div>
 
 <script>
 let opened = new Set();
+const totalLetters = 7; // UPDATED
 
 function openScroll(id) {
     document.querySelectorAll('.scroll').forEach(s => s.style.display = 'none');
     document.getElementById(id).style.display = 'block';
-    opened.add(id);
 
-    if (opened.size === 6) {
+    if (id !== 'final') {
+        opened.add(id);
+    }
+
+    if (opened.size === totalLetters) {
         const finalEnv = document.getElementById('finalEnvelope');
         finalEnv.classList.remove('locked');
-        finalEnv.onclick = () => openScroll('final');
+
+        finalEnv.onclick = () => {
+            openScroll('final');
+        };
     }
 }
 </script>
