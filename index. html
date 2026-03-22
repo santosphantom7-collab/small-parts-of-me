@@ -105,6 +105,8 @@ h1 {
 <div class="envelope" onclick="openScroll('s4')"><span>Confession ❤️</span></div>
 <div class="envelope" onclick="openScroll('s5')"><span>Apology 💔</span></div>
 <div class="envelope spiderman" onclick="openScroll('s6')"><span>From Your Spider-Man 🕷️</span></div>
+
+<div class="envelope" onclick="openScroll('s7')"><span>Miss Me 💭</span></div>
 <div id="finalEnvelope" class="envelope locked"><span>Final Letter 🔒</span></div>
 
 </div>
@@ -119,7 +121,23 @@ h1 {
 
 <div id="s5" class="scroll"><h2>Apology 💔</h2><p>I’m sorry for the times I made things heavy. I’m learning, growing… trying to be better for you.</p></div>
 
-<div id="s6" class="scroll"><h2>Your Spider-Man 🕷️</h2><p>I’m still just a boy who loves too hard and gets attached too quickly… but for you, I wouldn’t change that. You mean everything to me. — From your Spider-Man</p></div>
+<div id="s6" class="scroll">
+<h2>Your Spider-Man 🕷️</h2>
+<p>I’m still just a boy who loves too hard and gets attached too quickly… but for you, I wouldn’t change that. You mean everything to me. — From your Spider-Man</p>
+</div>
+
+<div id="s7" class="scroll">
+<h2>When You Miss Me 💭</h2>
+<p>Hey… if you opened this, it probably means I’m on your mind. And I just want you to know — I’m right here for you, even in the quiet moments.
+
+You don’t have to carry anything alone. Not your thoughts, not your worries, not your fears. I’ve got you… always.
+
+I love you more than I probably say out loud, and even when things feel uncertain, that doesn’t change. You matter to me in a way that’s real and steady.
+
+So breathe for a second… everything is going to be okay. We’ll figure it out, together.
+
+And if you’re missing me… just know I’m missing you too. ❤️</p>
+</div>
 
 <div id="final" class="scroll"><h2>Final Letter ❤️</h2><p>If you’re reading this… it means you’ve seen every piece of my heart. And I need you to know this— even though things might feel rough right now, this isn’t the end for us. I still believe in us. I still choose you. And no matter how hard it gets, I’m not ready to give up on what we have. I love you. Always.</p></div>
 
